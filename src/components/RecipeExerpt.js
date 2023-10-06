@@ -1,7 +1,6 @@
 import React from "react";
 
 const RecipeExcerpt = ({ recipe, handleSelectRecipe }) => {
-  console.log(handleSelectRecipe);
   return (
     <article key={recipe.id} className='recipe-card'>
       <figure>

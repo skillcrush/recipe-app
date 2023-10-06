@@ -1,14 +1,29 @@
 import React, { useState } from "react";
 import EditRecipeForm from "./EditRecipeForm";
+import ConfirmationModal from "./ConfirmationModal";
 import { X } from "react-feather";
 
-const RecipeFull = ({ selectedRecipe, handleUnselectRecipe, onUpdateForm, handleUpdateRecipe }) => {
+const RecipeFull = ({ selectedRecipe, handleUnselectRecipe, onUpdateForm, handleUpdateRecipe, handleDeleteRecipe }) => {
   const [editing, setEditing] = useState(false);
+  const [showConfirmationModal, setShowConfirmationModel] = useState(false);
 
   const handleCancel = () => {
     setEditing(false);
   };
 
+  if (showConfirmationModal) {
+    return (
+      <div className='recipe-details'>
+        {showConfirmationModal && (
+          <ConfirmationModal
+            message="Are you sure? Once it's gone, it's gone."
+            onCancel={() => setShowConfirmationModel(false)}
+            onConfirm={() => handleDeleteRecipe(selectedRecipe.id)}
+          />
+        )}
+      </div>
+    );
+  }
   return (
     <div className='recipe-details'>
       {editing ? (
@@ -32,7 +47,9 @@ const RecipeFull = ({ selectedRecipe, handleUnselectRecipe, onUpdateForm, handle
               <button className='cancel-button' onClick={() => handleUnselectRecipe(selectedRecipe)}>
                 <X /> Close
               </button>
-              <button className='delete-button'>Delete</button>
+              <button className='delete-button' onClick={() => setShowConfirmationModel(true)}>
+                Delete
+              </button>
             </div>
           </header>
 
