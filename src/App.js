@@ -180,7 +180,6 @@ function App() {
   return (
     <div className='recipe-app'>
       <Header showRecipeForm={showRecipeForm} updateSearchTerm={updateSearchTerm} searchTerm={searchTerm} />
-
       {showNewRecipeForm && (
         <NewRecipeForm
           newRecipe={newRecipe}
@@ -189,16 +188,15 @@ function App() {
           onUpdateForm={onUpdateForm}
         />
       )}
-
       {selectedRecipe && (
         <RecipeFull
           selectedRecipe={selectedRecipe}
           handleUnselectRecipe={handleUnselectRecipe}
           handleUpdateRecipe={handleUpdateRecipe}
           onUpdateForm={onUpdateForm}
+          handleDeleteRecipe={handleDeleteRecipe}
         />
       )}
-
       {!selectedRecipe && !showNewRecipeForm && (
         <div className='recipe-list'>
           {displayedRecipes.map((recipe) => (
