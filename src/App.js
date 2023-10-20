@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
-import RecipeExcerpt from "./components/RecipeExerpt";
 import RecipeFull from "./components/RecipeFull";
+import RecipeExcerpt from "./components/RecipeExerpt";
 import NewRecipeForm from "./components/NewRecipeForm";
 import "./App.css";
 
@@ -32,13 +32,12 @@ function App() {
         }
       } catch (e) {
         console.error("An error occurred during the request:", e);
-        console.log("An unexpected error occurre  d. Please try again later.");
       }
     };
     fetchAllRecipes();
   }, []);
 
-  const handleNewRecipe = async (e, newRecipe) => {
+  const handleNewRecipe = async (e, newFormRecipe) => {
     e.preventDefault();
 
     try {
@@ -47,7 +46,7 @@ function App() {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(newRecipe)
+        body: JSON.stringify(newFormRecipe)
       });
 
       if (response.ok) {
@@ -64,7 +63,8 @@ function App() {
           instructions: "",
           servings: 1,
           description: "",
-          imageUrl: ""
+          image_url:
+            "https://images.pexels.com/photos/9986228/pexels-photo-9986228.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         });
       } else {
         console.error("Oops - could not add recipe!");
@@ -91,33 +91,23 @@ function App() {
     setSelectedRecipe(null);
   };
 
-  const onUpdateForm = (e, action = "new") => {
+  const onUpdateForm = (e) => {
     const { name, value } = e.target;
-    if (action === "update") {
-      setSelectedRecipe({
-        ...selectedRecipe,
-        [name]: value
-      });
-    } else if (action === "new") {
-      setNewRecipe({ ...newRecipe, [name]: value });
-    }
+    setNewRecipe({ ...newRecipe, [name]: value });
   };
 
   return (
     <div className='recipe-app'>
       <Header showRecipeForm={showRecipeForm} />
-
       {showNewRecipeForm && (
         <NewRecipeForm
           newRecipe={newRecipe}
           hideRecipeForm={hideRecipeForm}
-          handleNewRecipe={handleNewRecipe}
           onUpdateForm={onUpdateForm}
+          handleNewRecipe={handleNewRecipe}
         />
       )}
-
       {selectedRecipe && <RecipeFull selectedRecipe={selectedRecipe} handleUnselectRecipe={handleUnselectRecipe} />}
-
       {!selectedRecipe && !showNewRecipeForm && (
         <div className='recipe-list'>
           {recipes.map((recipe) => (
