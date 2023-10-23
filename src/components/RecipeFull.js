@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import EditRecipeForm from "./EditRecipeForm";
 import ConfirmationModal from "./ConfirmationModal";
-import { X } from "react-feather";
+import { X, Edit2 as Edit } from "react-feather";
 
 const RecipeFull = ({ selectedRecipe, handleUnselectRecipe, onUpdateForm, handleUpdateRecipe, handleDeleteRecipe }) => {
   const [editing, setEditing] = useState(false);
@@ -30,8 +30,10 @@ const RecipeFull = ({ selectedRecipe, handleUnselectRecipe, onUpdateForm, handle
         <EditRecipeForm
           selectedRecipe={selectedRecipe}
           onUpdateForm={onUpdateForm}
+          handleDeleteRecipe={handleDeleteRecipe}
           handleCancel={handleCancel}
           handleUpdateRecipe={handleUpdateRecipe}
+          showConfirmationModal={showConfirmationModal}
         />
       ) : (
         <article>
@@ -42,6 +44,7 @@ const RecipeFull = ({ selectedRecipe, handleUnselectRecipe, onUpdateForm, handle
             <h2>{selectedRecipe.title}</h2>
             <div className='button-container'>
               <button className='edit-button' onClick={() => setEditing(true)}>
+                <Edit />
                 Edit
               </button>
               <button className='cancel-button' onClick={() => handleUnselectRecipe(selectedRecipe)}>
