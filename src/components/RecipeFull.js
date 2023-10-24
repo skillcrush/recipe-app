@@ -14,13 +14,11 @@ const RecipeFull = ({ selectedRecipe, handleUnselectRecipe, onUpdateForm, handle
   if (showConfirmationModal) {
     return (
       <div className='recipe-details'>
-        {showConfirmationModal && (
-          <ConfirmationModal
-            message="Are you sure? Once it's gone, it's gone."
-            onCancel={() => setShowConfirmationModel(false)}
-            onConfirm={() => handleDeleteRecipe(selectedRecipe.id)}
-          />
-        )}
+        <ConfirmationModal
+          message="Are you sure? Once it's gone, it's gone."
+          onCancel={() => setShowConfirmationModel(false)}
+          onConfirm={() => handleDeleteRecipe(selectedRecipe.id)}
+        />
       </div>
     );
   }
