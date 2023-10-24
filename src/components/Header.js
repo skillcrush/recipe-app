@@ -2,13 +2,7 @@ import React from "react";
 import { Search } from "react-feather";
 import { ReactComponent as Logo } from "../images/utensils.svg";
 
-const Header = ({ showRecipeForm, searchTerm, updateSearchTerm, hideRecipeForm, handleUnselectRecipe }) => {
-  const displayAllRecipes = () => {
-    hideRecipeForm();
-    handleUnselectRecipe();
-    updateSearchTerm("");
-  };
-
+const Header = ({ showRecipeForm, searchTerm, updateSearchTerm, displayAllRecipes }) => {
   return (
     <header>
       <div className='logo-search'>
