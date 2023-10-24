@@ -32,7 +32,6 @@ function App() {
         }
       } catch (e) {
         console.error("An error occurred during the request:", e);
-        console.log("An unexpected error occurre  d. Please try again later.");
       }
     };
     fetchAllRecipes();
@@ -101,11 +100,9 @@ function App() {
         );
         console.log("Recipe updated!");
       } else {
-        console.error("Recipe update failed.");
         console.error("Failed to update recipe. Please try again.");
       }
     } catch (error) {
-      console.error("An error occurred during the request:", error);
       console.error("An unexpected error occurred. Please try again later.");
     }
 
