@@ -37,7 +37,7 @@ function App() {
     fetchAllRecipes();
   }, []);
 
-  const handleNewRecipe = async (e, newFormRecipe) => {
+  const handleNewRecipe = async (e, newRecipe) => {
     e.preventDefault();
 
     try {
@@ -46,7 +46,7 @@ function App() {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(newFormRecipe)
+        body: JSON.stringify(newRecipe)
       });
 
       if (response.ok) {
