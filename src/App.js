@@ -65,7 +65,8 @@ function App() {
           instructions: "",
           servings: 1,
           description: "",
-          imageUrl: ""
+          image_url:
+            "https://images.pexels.com/photos/9986228/pexels-photo-9986228.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         });
       } else {
         console.error("Oops - could not add recipe!");
