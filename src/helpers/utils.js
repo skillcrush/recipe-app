@@ -1,4 +1,4 @@
-export const truncateText = (text, numWords) => {
+export const truncateText = (text, numWords = 20) => {
   const textArray = text.split(" ");
   if (textArray.length <= numWords) {
     return text;
