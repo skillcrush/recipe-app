@@ -1,9 +1,8 @@
 import React from "react";
 
 const RecipeExcerpt = ({ recipe, handleSelectRecipe }) => {
-
   return (
-    <article key={recipe.id} className='recipe-card'>
+    <article className='recipe-card'>
       <figure>
         <img src={recipe.image_url} alt={recipe.name} />
       </figure>
