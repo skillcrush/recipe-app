@@ -5,7 +5,7 @@ import { X } from "react-feather";
 
 const RecipeFull = ({ selectedRecipe, handleUnselectRecipe, onUpdateForm, handleUpdateRecipe, handleDeleteRecipe }) => {
   const [editing, setEditing] = useState(false);
-  const [showConfirmationModal, setShowConfirmationModel] = useState(false);
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
 
   const handleCancel = () => {
     setEditing(false);
@@ -16,7 +16,7 @@ const RecipeFull = ({ selectedRecipe, handleUnselectRecipe, onUpdateForm, handle
       <div className='recipe-details'>
         <ConfirmationModal
           message="Are you sure? Once it's gone, it's gone."
-          onCancel={() => setShowConfirmationModel(false)}
+          onCancel={() => setShowConfirmationModal(false)}
           onConfirm={() => handleDeleteRecipe(selectedRecipe.id)}
         />
       </div>
@@ -45,7 +45,7 @@ const RecipeFull = ({ selectedRecipe, handleUnselectRecipe, onUpdateForm, handle
               <button className='cancel-button' onClick={() => handleUnselectRecipe(selectedRecipe)}>
                 <X /> Close
               </button>
-              <button className='delete-button' onClick={() => setShowConfirmationModel(true)}>
+              <button className='delete-button' onClick={() => setShowConfirmationModal(true)}>
                 Delete
               </button>
             </div>
