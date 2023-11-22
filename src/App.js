@@ -35,7 +35,6 @@ function App() {
           displayToast("Oops - could not fetch recipes!", "error");
         }
       } catch (e) {
-        console.error("An error occurred during the request:", e);
         displayToast("An unexpected error occurred. Please try again later.", "error");
       }
     };
@@ -73,11 +72,9 @@ function App() {
             "https://images.pexels.com/photos/9986228/pexels-photo-9986228.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         });
       } else {
-        console.error("Oops - could not add recipe!");
         displayToast("Oops - could not add recipe!", "error");
       }
     } catch (e) {
-      console.error("An error occurred during the request:", e);
       displayToast("An unexpected error occurred. Please try again later.", "error");
     }
   };
@@ -112,7 +109,6 @@ function App() {
         displayToast("Failed to update recipe. Please try again.", "error");
       }
     } catch (error) {
-      console.error("An error occurred during the request:", error);
       displayToast("An unexpected error occurred. Please try again later.", "error");
     }
 
@@ -130,10 +126,9 @@ function App() {
         setSelectedRecipe(null);
         displayToast("Recipe deleted successfully!");
       } else {
-        console.error("Oops - could not delete recipe!");
+        displayToast("Could not delete recipe, please try again later.", "error");
       }
     } catch (e) {
-      console.error("Something went wrong during the request:", e);
       displayToast("An unexpected error occurred. Please try again later.", "error");
     }
   };
