@@ -5,7 +5,7 @@ const RecipeExcerpt = ({ recipe, handleSelectRecipe }) => {
   return (
     <article className='recipe-card'>
       <figure>
-        <img src={recipe.image_url} alt={recipe.name} />
+        <img src={recipe.image_url} alt={recipe.title} />
       </figure>
       <h2>{recipe.title}</h2>
       <p className='flex-spacing'>Description: {truncateText(recipe.description, 20)}</p>
