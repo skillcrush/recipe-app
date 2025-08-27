@@ -10,20 +10,21 @@ const EditRecipeForm = ({ selectedRecipe, handleCancel, onUpdateForm, handleUpda
       </button>
 
       <form onSubmit={(e) => handleUpdateRecipe(e, selectedRecipe)}>
-        <label>Title</label>
-        <input type='text' name='title' value={selectedRecipe.title} onChange={(e) => onUpdateForm(e, "update")} required />
+        <label htmlFor="title">Title</label>
+        <input id="title" type='text' name='title' value={selectedRecipe.title} onChange={(e) => onUpdateForm(e, "update")} required />
 
-        <label>Ingredients</label>
-        <textarea name='ingredients' value={selectedRecipe.ingredients} onChange={(e) => onUpdateForm(e, "update")} required />
+        <label htmlFor="ingredients">Ingredients</label>
+        <textarea id="ingredients" name='ingredients' value={selectedRecipe.ingredients} onChange={(e) => onUpdateForm(e, "update")} required />
 
-        <label>Instructions</label>
-        <textarea name='instructions' value={selectedRecipe.instructions} onChange={(e) => onUpdateForm(e, "update")} required />
+        <label htmlFor="instructions">Instructions</label>
+        <textarea id="instructions" name='instructions' value={selectedRecipe.instructions} onChange={(e) => onUpdateForm(e, "update")} required />
 
-        <label>Description</label>
-        <textarea name='description' value={selectedRecipe.description} onChange={(e) => onUpdateForm(e, "update")} required />
+        <label htmlFor="description">Description</label>
+        <textarea id="description" name='description' value={selectedRecipe.description} onChange={(e) => onUpdateForm(e, "update")} required />
 
-        <label>Image</label>
+        <label htmlFor="image">Image</label>
         <input
+          id="image"
           type='text'
           name='image_url'
           value={selectedRecipe.image_url}
@@ -31,8 +32,9 @@ const EditRecipeForm = ({ selectedRecipe, handleCancel, onUpdateForm, handleUpda
           required
         />
 
-        <label>Servings</label>
+        <label htmlFor="servings">Servings</label>
         <input
+          id="servings"
           type='number'
           name='servings'
           value={selectedRecipe.servings}
