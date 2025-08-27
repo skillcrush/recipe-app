@@ -10,11 +10,12 @@ const NewRecipeForm = ({ newRecipe, handleNewRecipe, onUpdateForm, hideRecipeFor
         </button>
 
         <form onSubmit={(e) => handleNewRecipe(e, newRecipe)}>
-          <label>Title</label>
-          <input type='text' name='title' value={newRecipe.title} onChange={(e) => onUpdateForm(e, "new")} required />
+          <label htmlFor='title'>Title</label>
+          <input id='title' type='text' name='title' value={newRecipe.title} onChange={(e) => onUpdateForm(e, "new")} required />
 
-          <label>Ingredients</label>
+          <label htmlFor='ingredients'>Ingredients</label>
           <textarea
+            id='ingredients'
             name='ingredients'
             value={newRecipe.ingredients}
             onChange={(e) => onUpdateForm(e, "new")}
@@ -22,17 +23,17 @@ const NewRecipeForm = ({ newRecipe, handleNewRecipe, onUpdateForm, hideRecipeFor
             placeholder='Add ingredients separated by commas - i.e. Flour, sugar, almonds'
           />
 
-          <label>Instructions</label>
-          <textarea name='instructions' value={newRecipe.instructions} onChange={(e) => onUpdateForm(e, "new")} required />
+          <label htmlFor='instructions'>Instructions</label>
+          <textarea id="instructions" name='instructions' value={newRecipe.instructions} onChange={(e) => onUpdateForm(e, "new")} required />
 
-          <label>Description</label>
-          <textarea name='description' value={newRecipe.description} onChange={(e) => onUpdateForm(e, "new")} required />
+          <label htmlFor='description'>Description</label>
+          <textarea id="description" name='description' value={newRecipe.description} onChange={(e) => onUpdateForm(e, "new")} required />
 
-          <label>Image</label>
-          <input type='text' name='image_url' value={newRecipe.image_url} onChange={(e) => onUpdateForm(e, "new")} required />
+          <label htmlFor="image">Image</label>
+          <input id="image" type='text' name='image_url' value={newRecipe.image_url} onChange={(e) => onUpdateForm(e, "new")} required />
 
-          <label>Servings</label>
-          <input type='number' name='servings' value={newRecipe.servings} onChange={(e) => onUpdateForm(e, "new")} required />
+          <label htmlFor='servings'>Servings</label>
+          <input id='servings' type='number' name='servings' value={newRecipe.servings} onChange={(e) => onUpdateForm(e, "new")} required />
 
           <button type='submit'>Save Recipe</button>
         </form>
